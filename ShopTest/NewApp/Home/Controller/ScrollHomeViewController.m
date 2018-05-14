@@ -78,6 +78,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *goodsCollectionViewTop;//商品collectionview上面的约束
 @property (weak, nonatomic) IBOutlet UILabel *searchResultLabel;//搜索结果展示的label
 @property (weak, nonatomic) IBOutlet UIView *gouwuCheBgView;//购物车没有商品时候的背景图片
+@property (weak, nonatomic) IBOutlet UIButton *selectGoodsClearBtn;//购物车右上角的那个清空的按钮
 
 @end
 
@@ -345,8 +346,10 @@
         [self.selelctGoodsTableview reloadData];
         if (self.selectGoodsInfoModelAry.count == 0) {
             self.gouwuCheBgView.hidden = NO;
+            self.selectGoodsClearBtn.enabled = NO;
         } else {
             self.gouwuCheBgView.hidden = YES;
+            self.selectGoodsClearBtn.enabled = YES;
         }
         int n = 0;
         for (int i = 0; i<self.selectGoodsInfoModelAry.count; i++) {
@@ -477,8 +480,10 @@
         [self.selelctGoodsTableview reloadData];
         if (self.selectGoodsInfoModelAry.count == 0) {
             self.gouwuCheBgView.hidden = NO;
+            self.selectGoodsClearBtn.enabled = NO;
         } else {
             self.gouwuCheBgView.hidden = YES;
+            self.selectGoodsClearBtn.enabled = YES;
         }
         int n = 0;
         for (int i = 0; i<self.selectGoodsInfoModelAry.count; i++) {
@@ -542,8 +547,10 @@
         [self.selelctGoodsTableview reloadData];
         if (self.selectGoodsInfoModelAry.count == 0) {
             self.gouwuCheBgView.hidden = NO;
+            self.selectGoodsClearBtn.enabled = NO;
         } else {
             self.gouwuCheBgView.hidden = YES;
+            self.selectGoodsClearBtn.enabled = YES;
         }
         int n = 0;
         for (int i = 0; i<self.selectGoodsInfoModelAry.count; i++) {
@@ -571,8 +578,10 @@
     [self.selelctGoodsTableview reloadData];
     if (self.selectGoodsInfoModelAry.count == 0) {
         self.gouwuCheBgView.hidden = NO;
+        self.selectGoodsClearBtn.enabled = NO;
     } else {
         self.gouwuCheBgView.hidden = YES;
+        self.selectGoodsClearBtn.enabled = YES;
     }
 
     int n = 0;
@@ -621,8 +630,10 @@
     [self.selelctGoodsTableview reloadData];
     if (self.selectGoodsInfoModelAry.count == 0) {
         self.gouwuCheBgView.hidden = NO;
+        self.selectGoodsClearBtn.enabled = NO;
     } else {
         self.gouwuCheBgView.hidden = YES;
+        self.selectGoodsClearBtn.enabled = YES;
     }
     //在上面的结算的tableview视图每刷新一次，底部的label都要也相应的更新一次，更新的数据为，所有选中的商品的sku的综合信息，所以应该有一个数组，里面包含的内容为上面的结算清单的模型数组的，然后遍历数组得到总价、个数等信息
     int n = 0;
@@ -736,7 +747,11 @@
                 ProductModel *m = self.modelAry[i];
                 NSDictionary *ridDict = dict[m.rid];
                 NSArray *ary = [ProductSkuModel mj_objectArrayWithKeyValuesArray:ridDict[@"items"]];
-                [self.goodsSkuInfoModelAry addObject:ary];
+                if (ary == nil) {
+                    
+                } else {
+                    [self.goodsSkuInfoModelAry addObject:ary];
+                }
             }
         } failure:^(FBRequest *request, NSError *error) {
             
@@ -1039,8 +1054,10 @@
     [self.selelctGoodsTableview reloadData];
     if (self.selectGoodsInfoModelAry.count == 0) {
         self.gouwuCheBgView.hidden = NO;
+        self.selectGoodsClearBtn.enabled = NO;
     } else {
         self.gouwuCheBgView.hidden = YES;
+        self.selectGoodsClearBtn.enabled = YES;
     }
     int n = 0;
     for (int i = 0; i<self.selectGoodsInfoModelAry.count; i++) {
@@ -1120,8 +1137,10 @@
         [self.selelctGoodsTableview reloadData];
         if (self.selectGoodsInfoModelAry.count == 0) {
             self.gouwuCheBgView.hidden = NO;
+            self.selectGoodsClearBtn.enabled = NO;
         } else {
             self.gouwuCheBgView.hidden = YES;
+            self.selectGoodsClearBtn.enabled = YES;
         }
 //#warning 在这里更新总结信息
         int n = 0;
@@ -1155,8 +1174,10 @@
     [self.selelctGoodsTableview reloadData];
     if (self.selectGoodsInfoModelAry.count == 0) {
         self.gouwuCheBgView.hidden = NO;
+        self.selectGoodsClearBtn.enabled = NO;
     } else {
         self.gouwuCheBgView.hidden = YES;
+        self.selectGoodsClearBtn.enabled = YES;
     }
 //#warning 在这里更新总结的信息
     int n = 0;
@@ -1213,8 +1234,10 @@
         [self.selelctGoodsTableview reloadData];
         if (self.selectGoodsInfoModelAry.count == 0) {
             self.gouwuCheBgView.hidden = NO;
+            self.selectGoodsClearBtn.enabled = NO;
         } else {
             self.gouwuCheBgView.hidden = YES;
+            self.selectGoodsClearBtn.enabled = YES;
         }
         //在上面的结算的tableview视图每刷新一次，底部的label都要也相应的更新一次，更新的数据为，所有选中的商品的sku的综合信息，所以应该有一个数组，里面包含的内容为上面的结算清单的模型数组的，然后遍历数组得到总价、个数等信息
         int n = 0;

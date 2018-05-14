@@ -281,6 +281,11 @@
     [self.scrollview setContentOffset:CGPointMake(0, 3 * [UIScreen mainScreen].bounds.size.height) animated:YES];
 }
 
+#pragma mark 点击设置的方法
+- (IBAction)setting:(id)sender {
+    
+}
+
 #pragma mark 扫一扫方法
 - (IBAction)scanBtn:(id)sender {
     QRCodeScanViewController *vc = [QRCodeScanViewController new];

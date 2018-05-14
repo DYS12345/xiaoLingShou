@@ -20,5 +20,9 @@
 
 + (instancetype)viewFromXib;
 - (void)circle:(NSInteger)r;
++ (void)addShadowToView:(UIView *)view
+            withOpacity:(float)shadowOpacity
+           shadowRadius:(CGFloat)shadowRadius
+        andCornerRadius:(CGFloat)cornerRadius;
 
 @end

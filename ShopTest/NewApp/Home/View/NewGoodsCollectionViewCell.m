@@ -23,14 +23,14 @@
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:productModel.cover] placeholderImage:[UIImage imageNamed:@"Bitmap"]];
     self.goodsTitle.text = productModel.name;
     if ([productModel.sale_price integerValue] == 0) {
-        self.goodsPrice.text = [NSString stringWithFormat:@"￥%@", productModel.price];
+        self.goodsPrice.text = [NSString stringWithFormat:@"￥%.2f", [productModel.price floatValue]];
         self.price.hidden = YES;
     } else {
-        self.goodsPrice.text = [NSString stringWithFormat:@"￥%@", productModel.sale_price];
+        self.goodsPrice.text = [NSString stringWithFormat:@"￥%.2f", [productModel.sale_price floatValue]];
         self.price.hidden = NO;
     }
     NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
-    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"￥%@", productModel.price] attributes:attribtDic];
+    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"￥%.2f", [productModel.price floatValue]] attributes:attribtDic];
     self.price.attributedText = attribtStr;
 }
 
